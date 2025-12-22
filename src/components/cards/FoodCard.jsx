@@ -1,0 +1,38 @@
+import Link from 'next/link';
+import React from 'react';
+
+const FoodCard = ({ food }) => {
+  const { id,title, foodImg, price, category } = food;
+
+  return (
+    <div className="border rounded-lg shadow-md p-4">
+      {/* Image */}
+      <img
+        src={foodImg}
+        alt={title}
+        className="w-full h-40 object-cover rounded-md"
+      />
+
+      {/* Info */}
+      <div className="mt-3">
+        <h2 className="text-lg font-semibold">{title}</h2>
+        <p className="text-sm text-gray-600">Category: {category}</p>
+        <p className="text-md font-bold mt-1">৳ {price}</p>
+      </div>
+
+      {/* Buttons */}
+      <div className="flex gap-3 mt-4">
+  <Link href={`/foods/${id}`}>
+        <button className="flex-1 bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+          View Details
+        </button></Link>
+
+        <button className="flex-1 bg-green-500 text-white py-2 rounded hover:bg-green-600">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default FoodCard;
