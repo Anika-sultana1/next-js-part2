@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import React from 'react';
 import CardButton from '../buttons/CardButton';
+import style from '../../app/foods/Foods.module.css'
 
 const FoodCard = ({ food }) => {
   const { id,title, foodImg, price, category } = food;
 
   return (
-    <div className="border rounded-lg shadow-md p-4">
+    <div className={`border rounded-lg shadow-md p-4 ${style.bgred}`}>
       {/* Image */}
       <img
         src={foodImg}
