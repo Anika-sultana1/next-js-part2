@@ -5,6 +5,39 @@ export function generateStaticParams() {
   return [{ id: '52898' }, { id: '52955' }, { id: '52926' }]
 }
 
+export async function generateMetadata({params}){
+const {id} = await params;
+  const res = await fetch(
+    `https://taxi-kitchen-api.vercel.app/api/v1/foods/${id}`
+  );
+
+  if (!res.ok) {
+    return null;
+  }
+
+  const {details = {}} = await res.json();
+  return {
+    title: details.title,
+      generator: 'Next.js',
+  applicationName: 'Next.js',
+  referrer: 'origin-when-cross-origin',
+  keywords: ['Next.js', 'React', 'JavaScript'],
+  authors: [{ name: 'Seb' }, { name: 'Josh', url: 'https://nextjs.org' }],
+  creator: 'Jiachi Liu',
+  publisher: 'Sebastian Markbåge',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  }
+}
+
+export const metadata={
+  title: "Food Details Yatun Khaijan",
+  description: "Best Fastfood in Noakhali"
+}
+
 const getSingleFoods = async (id) => {
   const res = await fetch(
     `https://taxi-kitchen-api.vercel.app/api/v1/foods/${id}`

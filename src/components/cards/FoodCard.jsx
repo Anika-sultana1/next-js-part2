@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import CardButton from '../buttons/CardButton';
 import style from '../../app/foods/Foods.module.css'
+import Image from 'next/image';
 
 const FoodCard = ({ food }) => {
   const { id,title, foodImg, price, category } = food;
@@ -9,11 +10,19 @@ const FoodCard = ({ food }) => {
   return (
     <div className={`border rounded-lg shadow-md p-4 ${style.bgred}`}>
       {/* Image */}
-      <img
+      {/* <img
         src={foodImg}
         alt={title}
         className="w-full h-40 object-cover rounded-md"
-      />
+      /> */}
+
+      <Image src={foodImg}
+        alt={title}
+        className="w-full h-40 object-cover rounded-md"
+        width={300}
+        height={150}
+        
+        />
 
       {/* Info */}
       <div className="mt-3">

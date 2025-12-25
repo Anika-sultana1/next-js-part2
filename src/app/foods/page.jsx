@@ -12,6 +12,10 @@ const getFoods = async(search)=>{
     return data.foods || []
 }
 
+export const metadata={
+  title:'All Foods',
+  description: "Best Fastfood in Noakhali"
+}
 
 const Foods = async ({searchParams}) => {
 

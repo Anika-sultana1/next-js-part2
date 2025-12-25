@@ -1,4 +1,5 @@
 'use client'
+import Image from "next/image";
 import { useState } from "react";
 import { FaHeart, FaRegHeart, FaStar } from "react-icons/fa";
 
@@ -17,11 +18,16 @@ const ReviewCard = ({ reviewData }) => {
     <div className="bg-white rounded-xl shadow p-5 space-y-4">
       {/* user info */}
       <div className="flex items-center gap-3">
-        <img
+        {/* <img
           src={photo}
           alt={user}
           className="w-12 h-12 rounded-full object-cover"
-        />
+        /> */}
+        <Image src={photo}
+          alt={user}
+          className="w-12 h-12 rounded-full object-cover"
+          width={56}
+          height={56}/>
         <div>
           <h3 className="font-semibold">{user}</h3>
           <p className="text-xs text-gray-500">
